@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Tu plataforma de entretenimiento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .sidebar-transition {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Barra de navegación superior -->
+    <nav class="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+                <h1 class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">StreamFlix</h1>
+                <div class="hidden md:flex space-x-6">
+                    <button class="nav-btn text-white" data-category="peliculas">Películas</button>
+                    <button class="nav-btn text-white" data-category="series">Series</button>
+                    <button class="nav-btn text-white" data-category="documentales">Documentales</button>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Buscar contenido..." 
+                           class="bg-gray-700 text-white px-4 py-2 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button class="absolute right-2 top-2 text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <button id="sidebarToggle" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-gray-800 w-64 min-h-screen p-6 sidebar-transition transform -translate-x-full md:translate-x-0 fixed md:relative z-20">
+            <div class="space-y-6">
+                <!-- Géneros -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-purple-400">Géneros</h3>
+                    <div class="space-y-2">
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="accion">Acción</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="aventura">Aventura</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="comedia">Comedia</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="ciencia-ficcion">Ciencia Ficción</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="drama">Drama</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="terror">Terror</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="romance">Romance</button>
+                        <button class="genre-btn w-full text-left px-3 py-2 rounded-lg bg-gray-700" data-genre="thriller">Thriller</button>
+                    </div>
+                </div>
+
+                <!-- Separador -->
+                <hr class="border-gray-600">
+
+                <!-- Opciones adicionales -->
+                <div class="space-y-4">
+                    <button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span>Ajustes</span>
+                    </button>
+                    
+                    <button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>Ayuda</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Overlay para móvil -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden"></div>
+
+        <!-- Contenido principal -->
+        <main class="flex-1 p-6">
+            <!-- Sección destacada -->
+            <section class="mb-8">
+                <div class="gradient-bg rounded-2xl p-8 text-center">
+                    <h2 class="text-4xl font-bold mb-4">Bienvenido a StreamFlix</h2>
+                    <p class="text-xl mb-6 opacity-90">Descubre miles de películas, series y documentales</p>
+                    <button class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Explorar ahora
+                    </button>
+                </div>
+            </section>
+
+            <!-- Filtros activos -->
+            <div id="activeFilters" class="mb-6 hidden">
+                <div class="flex items-center space-x-2 mb-4">
+                    <span class="text-gray-400">Filtros activos:</span>
+                    <div id="filterTags" class="flex space-x-2"></div>
+                    <button id="clearFilters" class="text-purple-400 hover:text-purple-300 text-sm">Limpiar todo</button>
+                </div>
+            </div>
+
+            <!-- Grid de contenido -->
+            <section>
+                <h3 id="sectionTitle" class="text-2xl font-bold mb-6">Contenido Popular</h3>
+                <div id="contentGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <!-- El contenido se generará dinámicamente -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Datos de ejemplo
+        const contentData = {
+            peliculas: [
+                { title: "Aventura Espacial", genre: "ciencia-ficcion", year: "2023", rating: "8.5" },
+                { title: "Comedia Romántica", genre: "romance", year: "2023", rating: "7.8" },
+                { title: "Acción Extrema", genre: "accion", year: "2022", rating: "8.2" },
+                { title: "Terror Nocturno", genre: "terror", year: "2023", rating: "7.5" },
+                { title: "Drama Familiar", genre: "drama", year: "2022", rating: "8.9" },
+                { title: "Aventura Épica", genre: "aventura", year: "2023", rating: "8.1" }
+            ],
+            series: [
+                { title: "Misterio Criminal", genre: "thriller", year: "2023", rating: "9.1" },
+                { title: "Comedia Urbana", genre: "comedia", year: "2022", rating: "8.3" },
+                { title: "Ciencia y Futuro", genre: "ciencia-ficcion", year: "2023", rating: "8.7" },
+                { title: "Drama Histórico", genre: "drama", year: "2022", rating: "9.0" },
+                { title: "Aventuras Medievales", genre: "aventura", year: "2023", rating: "8.4" }
+            ],
+            documentales: [
+                { title: "Naturaleza Salvaje", genre: "aventura", year: "2023", rating: "8.8" },
+                { title: "Ciencia Moderna", genre: "ciencia-ficcion", year: "2022", rating: "8.6" },
+                { title: "Historia Mundial", genre: "drama", year: "2023", rating: "8.9" },
+                { title: "Misterios Sin Resolver", genre: "thriller", year: "2022", rating: "8.2" }
+            ]
+        };
+
+        let currentCategory = 'all';
+        let currentGenre = 'all';
+        let searchTerm = '';
+
+        // Elementos del DOM
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const contentGrid = document.getElementById('contentGrid');
+        const sectionTitle = document.getElementById('sectionTitle');
+        const searchInput = document.getElementById('searchInput');
+        const activeFilters = document.getElementById('activeFilters');
+        const filterTags = document.getElementById('filterTags');
+        const clearFilters = document.getElementById('clearFilters');
+
+        // Toggle sidebar en móvil
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Navegación por categorías
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentCategory = btn.dataset.category;
+                updateActiveNavButton(btn);
+                renderContent();
+                updateSectionTitle();
+            });
+        });
+
+        // Filtros por género
+        document.querySelectorAll('.genre-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentGenre = btn.dataset.genre;
+                updateActiveGenreButton(btn);
+                renderContent();
+                updateFilters();
+            });
+        });
+
+        // Búsqueda deshabilitada
+
+        // Limpiar filtros
+        clearFilters.addEventListener('click', () => {
+            currentCategory = 'all';
+            currentGenre = 'all';
+            
+            // Resetear botones activos
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('text-purple-400'));
+            document.querySelectorAll('.genre-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600');
+                btn.classList.add('bg-gray-700');
+            });
+            
+            renderContent();
+            updateFilters();
+            updateSectionTitle();
+        });
+
+        function updateActiveNavButton(activeBtn) {
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-purple-400');
+            });
+            activeBtn.classList.add('text-purple-400');
+        }
+
+        function updateActiveGenreButton(activeBtn) {
+            document.querySelectorAll('.genre-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600');
+                btn.classList.add('bg-gray-700');
+            });
+            activeBtn.classList.remove('bg-gray-700');
+            activeBtn.classList.add('bg-purple-600');
+        }
+
+        function updateSectionTitle() {
+            const titles = {
+                'peliculas': 'Películas',
+                'series': 'Series',
+                'documentales': 'Documentales',
+                'all': 'Contenido Popular'
+            };
+            sectionTitle.textContent = titles[currentCategory] || 'Contenido Popular';
+        }
+
+        function updateFilters() {
+            const hasFilters = currentGenre !== 'all';
+            
+            if (hasFilters) {
+                activeFilters.classList.remove('hidden');
+                filterTags.innerHTML = '';
+                
+                if (currentGenre !== 'all') {
+                    const genreTag = document.createElement('span');
+                    genreTag.className = 'bg-purple-600 px-3 py-1 rounded-full text-sm';
+                    genreTag.textContent = `Género: ${currentGenre}`;
+                    filterTags.appendChild(genreTag);
+                }
+            } else {
+                activeFilters.classList.add('hidden');
+            }
+        }
+
+        function getFilteredContent() {
+            let content = [];
+            
+            if (currentCategory === 'all') {
+                content = [...contentData.peliculas, ...contentData.series, ...contentData.documentales];
+            } else {
+                content = contentData[currentCategory] || [];
+            }
+            
+            // Filtrar por género
+            if (currentGenre !== 'all') {
+                content = content.filter(item => item.genre === currentGenre);
+            }
+            
+            return content;
+        }
+
+        function renderContent() {
+            const content = getFilteredContent();
+            
+            if (content.length === 0) {
+                contentGrid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-6xl mb-4">🔍</div>
+                        <h3 class="text-xl font-semibold mb-2">No se encontró contenido</h3>
+                        <p class="text-gray-400">Intenta con otros filtros o términos de búsqueda</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            contentGrid.innerHTML = content.map(item => `
+                <div class="bg-gray-800 rounded-lg overflow-hidden cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
+                        <div class="text-4xl">🎬</div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-semibold mb-2 truncate">${item.title}</h4>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>${item.year}</span>
+                            <div class="flex items-center space-x-1">
+                                <span>⭐</span>
+                                <span>${item.rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Inicializar la página
+        renderContent();
+        updateFilters();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9818726180212fa6',t:'MTc1ODI3ODIzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
