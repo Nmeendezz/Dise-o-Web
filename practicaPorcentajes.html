@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: red;
+        }
+
+        #parrafo2 {
+            width: 180px;
+            height: 76px;
+        }
+
+        #parrafo3 {
+            width: 50%;
+            height: 76px;
+        }
+
+        #parrafo3 div {
+            background-color: green;
+            width: 50%;
+        }
+
+        #parrafo4 {
+            width: 50%;
+            height: 76px;
+        }
+
+        #parrafo4 div {
+            background-color: green;
+            width: 40vw;
+        }
+
+        section {
+            font-weight: 200;
+            line-height: 1, 5;
+        }
+
+        #caja1 {
+            padding: 20px;
+            width: 70%;
+            float: left;
+            background-color: white;
+            border: solid 1px;
+        }
+
+        #caja2 {
+            float: left;
+            width: calc(100%- 70%);
+            background-color: white;
+            border: 1px solid;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Parrafo 1</p>
+    <div id="parrafo2">Parrafo 2</div>
+    <br>
+    <div id="parrafo3">
+        <div>Parrafo 3</div>
+    </div>
+    <br>
+    <div id="parrafo4">
+        <div>Parrafo 4</div>
+    </div>
+    <p>Parrafo 5</p>
+    <section>
+        <p>Hola</p>
+    </section>
+    <div id="caja1"></div>
+    <div id="caja2"></div>
+</body>
+
+</html>
