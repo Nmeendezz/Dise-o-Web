@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 25px;
+        }
+        .blue {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            position: relative;
+            top: -20px;
+            left: -50px;
+            z-index: -1;
+        }
+
+        .orange {
+            height: 400px;
+            width: 400px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orange">
+        <div class="blue"></div>
+    </div>
+</body>
+
+</html>

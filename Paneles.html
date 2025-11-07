@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --text-color: #333;
+        }
+        .caja{
+            display: inline-block;
+            width: 320px;
+            padding: 1em;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Verdana, sans-serif;
+        }
+        .cajaInvertida{
+            border-width: 0px;
+            background-color: #111;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h2>Panel normal</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum quidem inventore</p>
+    </div>
+    <div class="caja cajaInvertida">
+        <h2>Panel invertido</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum quidem inventore</p>
+    </div>
+</body>
+</html>

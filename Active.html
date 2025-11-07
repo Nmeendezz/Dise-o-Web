@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+           height: 400px;
+           width: 400px;
+           position: relative;
+           left: 100px;
+           top: 100px;
+        }
+        img:hover{
+            width: 350px;
+            height: 350px;
+            top: 0px;
+            left: 0px;
+            border: 4px solid darkred;
+            transition: all 2s;
+        }
+        img:active{
+            border: 4px solid greenyellow;
+            transition: all 2s;
+            height: 392px;
+            top: 0;
+            left: 0;
+        }
+        .hidden{
+            border: 5px solid blue;
+            height: 400px;
+            width: 400px;
+            overflow: hidden;
+            margin: auto;
+        }
+        .hidden:active{
+            border: 5px solid purple;
+            width: 800px;
+            transition: all 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden">
+        <img src="fotoZ.jpg" alt="cargando foto">
+    </div>
+</body>
+</html>

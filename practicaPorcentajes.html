@@ -46,14 +46,47 @@
             float: left;
             background-color: white;
             border: solid 1px;
+            box-sizing: border-box;
         }
 
         #caja2 {
-            float: left;
-            width: calc(100%- 70%);
             background-color: white;
             border: 1px solid;
             padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #box1{
+            background-color: blue;
+            width: 250px;
+            height: 250px;
+            border: 10px solid red;
+            padding: 10px;
+        }
+
+        #box2{
+            background-color: blue;
+            width: 250px;
+            height: 250px;
+            border: 10px solid red;
+            padding: 30px;
+
+        }
+
+        #shadowBox{
+            font-size: 30px;
+            border-radius: 2em;
+            text-align: center;
+            margin: 40px 50px;
+            height: 150px;
+            width: 250px;
+            background-color: lime;
+            justify-content: center;
+            box-shadow: 20px 20px 5px 5px black;
+            text-shadow: 2px 2px 7px white;
+            align-items: center;
+            margin: 0 auto;
+            rotate: -30deg;
             box-sizing: border-box;
         }
     </style>
@@ -74,8 +107,19 @@
     <section>
         <p>Hola</p>
     </section>
+    <h2>Box-Sizing</h2>
     <div id="caja1"></div>
     <div id="caja2"></div>
+
+    <h2>Cajas</h2>
+    <div id="box1"></div>
+    <br>
+    <div id="box2"></div>
+
+    <h2>Caja con sombra</h2>
+    <div id="shadowBox">
+        <p>Hola mundo</p>
+    </div>
 </body>
 
 </html>

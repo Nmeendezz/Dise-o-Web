@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .padre{
+            background-color: aqua;
+            height: 500px;
+            width: 500px;
+            left: 200px;
+            top: 100px;
+            border: 4px solid orange;
+            position: relative;
+        }
+        .hijos{
+            background-color: orange;
+            border: 4px solid blue;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+        .hijo2{
+            right: 0px;
+        }
+        .hijo3{
+            bottom: 0px;
+        }
+        .hijo4{
+            right: 0px;
+            bottom: 0px;
+        }
+        .hijo5{
+            margin: auto;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="padre">
+        <div class="hijos">Box 1</div>
+        <div class="hijos hijo2" >Box 2</div>
+        <div class="hijos hijo3">Box 3</div>
+        <div class="hijos hijo4">Box 4</div>
+        <div class="hijos hijo5">Box 5</div>
+    </div>
+</body>
+</html>
