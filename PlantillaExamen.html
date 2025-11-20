@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Responsive con Cartas y Footer Fijo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 70px;
+        }
+
+        header {
+            background: cyan;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: skyblue;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #666;
+            border-radius: 5px;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .card {
+            background: #f7f7f7;
+            border: 1px solid #e3e3e3;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+        }
+
+        .card__img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .card__body {
+            padding: 1rem;
+        }
+
+        .card__title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card__text {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card__actions {
+            margin-top: auto;
+            padding: 0 1rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: #333;
+            border: 1px solid #333;
+        }
+
+        footer {
+            background: skyblue;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mi Sitio Web</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Bienvenido</h2>
+        <p>Aquí tienes un conjunto de cartas para tu contenido.</p>
+
+        <section class="cards">
+            <article class="card">
+                <img class="card__img" src="" alt="Imagen 1">
+                <div class="card__body">
+                    <h3 class="card__title">Carta 1</h3>
+                    <p class="card__text">Descripción breve del contenido de la carta.</p>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Ver más</button>
+                    <button class="btn btn--outline">Guardar</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__img" src="" alt="Imagen 2">
+                <div class="card__body">
+                    <h3 class="card__title">Carta 2</h3>
+                    <p class="card__text">Otro texto para mostrar contenido dentro.</p>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Ver más</button>
+                    <button class="btn btn--outline">Guardar</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__img" src="" alt="Imagen 3">
+                <div class="card__body">
+                    <h3 class="card__title">Carta 3</h3>
+                    <p class="card__text">Texto de ejemplo para la tercera carta.</p>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Ver más</button>
+                    <button class="btn btn--outline">Guardar</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__img" src="" alt="Imagen 4">
+                <div class="card__body">
+                    <h3 class="card__title">Carta 4</h3>
+                    <p class="card__text">Contenido que quieras destacar aquí.</p>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Ver más</button>
+                    <button class="btn btn--outline">Guardar</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Sitio Web</p>
+    </footer>
+</body>
+
+</html>

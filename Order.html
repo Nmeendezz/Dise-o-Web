@@ -9,24 +9,26 @@
         .flex-container {
             display: flex;
             height: 100vh;
+            flex-direction: column;
         }
 
         .flex-item {
             background-color: rgb(255, 64, 175);
             color: #FFF;
-            height: 150px;
+            height: 200px;
             min-width: 150px;
-            flex-grow: 1;
+            width: 200px;
+            order: 15;
         }
 
         .blue {
             background-color: blue;
-            flex-grow: 3;
+            order: 12;
         }
 
         .red {
             background-color: orange;
-            flex-grow: 4;
+            order: 11;
         }
     </style>
 </head>
