@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plantillaBootsrap/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col">
+                <div class="accordion" id="lecciones">
+                    <!--Elemento 1-->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="encabezado-1">
+
+                            <!--Clases atributo y etiquetas para personas con discapacidad-->
+
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#elemento-1" aria-expanded="true" area-controls="elemento-1">
+                                Tema # 1
+                            </button>
+                        </h2>
+                        <div id="elemento-1" class="accordion-collapse collapse show" aria-labelledby="encabezado-1"
+                            data-bs-parent="#lecciones">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, error culpa molestiae amet tenetur at qui quasi? Debitis totam unde provident molestiae temporibus ex aperiam omnis vero. Inventore, sed voluptatum?</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Elemento 2-->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="encabezado-2">
+
+                            <!--Clases atributo y etiquetas para personas con discapacidad-->
+
+                            <button 
+                            class="accordion-button" 
+                            type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#elemento-2" 
+                            aria-expanded="true" 
+                            area-controls="elemento-2">
+                                Tema # 2
+                            </button>
+                        </h2>
+                        <div 
+                        id="elemento-2" 
+                        class="accordion-collapse collapse" 
+                        aria-labelledby="encabezado-2"
+                        data-bs-parent="#lecciones">
+                            <div class="accordion-body">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, error culpa molestiae amet tenetur at qui quasi? Debitis totam unde provident molestiae temporibus ex aperiam omnis vero. Inventore, sed voluptatum?</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="plantillaBootsrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

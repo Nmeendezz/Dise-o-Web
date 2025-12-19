@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            padding: 80px 5px;
+            background-color: lightsteelblue;
+        }
+
+        .caja {
+            background-color: lightyellow;
+            height: 150px;
+            width: 150px;
+            margin: 20px;
+            animation-name: movimiento;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+
+        .caja:first-child {
+            animation-direction: alternate-reverse;
+            animation-fill-mode: forwards;
+        }
+
+        .caja:nth-child(2) {
+            animation-direction: alternate;
+            animation-fill-mode: backwards;
+        }
+
+        .caja:nth-child(3) {
+            animation-direction: reverse;
+            animation-fill-mode: fill;
+        }
+
+        @keyframes movimiento {
+            0% {
+                left: 0;
+                background-color: lightslategray;
+            }
+
+            25% {
+                background-color: lightcoral;
+            }
+
+            50% {
+                background-color: pink;
+            }
+
+            100% {
+                left: 80%;
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="caja"></div>
+        <div class="caja"></div>
+        <div class="caja"></div>
+    </div>
+</body>
+
+</html>
