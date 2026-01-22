@@ -8,27 +8,42 @@
     <link rel="stylesheet" href="plantillaBootsrap/css/bootstrap.min.css">
     <style>
         body {
-            background-color: salmon;
+            background: salmon;
+            color: white;
         }
 
         header {
-            background-color: violet;
+            background: violet;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contenedor {
+            margin-bottom: 20px;
         }
 
         main {
-            background-color: lightgreen;
+            background: yellowgreen;
+            padding: 20px 0;
         }
 
         aside {
-            background-color: skyblue;
+            background: turquoise;
+            padding: 20px 0;
         }
 
-        .row-widgets {
-            background-color: orange;
+        .widgets {
+            margin-bottom: 20px;
+        }
+
+        .widgets>div {
+            background: orange;
+            padding: 20px;
         }
 
         footer {
-            background-color: pink;
+            padding: 20px 0;
+            background: pink;
         }
     </style>
 </head>
@@ -41,7 +56,7 @@
                 <p>12 columnas</p>
             </div>
         </header>
-        <section class="row contenedor align-items-center">
+        <section class="row align-items-center">
             <main class="col-md-8">
                 <h2>MAIN</h2>
                 <p class="d-none d-md-block">8 columnas</p>
